@@ -394,5 +394,7 @@ dialog::backdrop {
 }
 
 .filter__blur {
-  filter: blur(0.2rem);
+  filter: contrast(200%) blur(0.2rem);
 }
+
+
