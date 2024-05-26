@@ -27,6 +27,7 @@
   background-position: center;
   background-repeat: no-repeat;
   font-variation-settings: "wght" var(--font-weight-text);
+  min-width: 400px;
 }
 
 .header {
@@ -38,6 +39,7 @@
   gap: 23px;
   border: 2px solid var(--color-main);
   padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem) 0 24px 0;
+
   margin-block: 100px 100px;
 }
 
@@ -221,7 +223,7 @@
   z-index: -1;
 }
 
-.card__icon-button:focus-within::before {
+.card__icon-button:focus-visible::before {
   opacity: 100;
   z-index: 0;
 }
@@ -252,7 +254,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 90%;
-  color: var(--color-main);
+  color: var(--button-color);
 }
 
 .button:focus-visible {
@@ -280,17 +282,39 @@
 }
 
 .button:hover .button__text {
-  color: var(--button-color);
-  mix-blend-mode: difference;
+  color: var(--bg-color-main);
 }
 
 .button svg {
+  color: var(--button-color);
   transition: color 0.5s ease-in-out;
 }
 
 .button:hover svg {
   color: var(--button-color);
-  mix-blend-mode: difference;
+}
+
+@supports (mix-blend-mode: difference) {
+  .button__text {
+    mix-blend-mode: difference;
+  }
+
+  .button .button__text {
+    transition: none;
+  }
+
+  .button:hover .button__text {
+    color: var(--button-color);
+  }
+
+  .button svg {
+    transition: none;
+    mix-blend-mode: difference;
+  }
+
+  .button:hover svg {
+    color: var(--button-color);
+  }
 }
 
 .dialog__button {
@@ -299,7 +323,7 @@
   padding: 15px 20px;
 }
 
-.dialog__window {
+.save-window {
   display: flex;
   justify-content: center;
   margin-block-end: 105px;
@@ -307,7 +331,7 @@
 
 dialog::backdrop {
   opacity: 0.75;
-  background: var(--color-main, #000);
+  background: black;
 }
 
 .dialog {
@@ -351,6 +375,14 @@ dialog::backdrop {
     min-width: 320px;
   }
 
+  .header {
+    padding-top: 112px;
+    gap: 17px;
+  }
+  .header__logo {
+    gap: 9px;
+  }
+
   .dialog__button {
     flex-direction: column;
   }
@@ -365,36 +397,34 @@ dialog::backdrop {
   }
 }
 
-.filter__hue {
+.filter-hue {
   filter: hue-rotate(90deg);
 }
 
-.filter__sepia {
+.filter-sepia {
   filter: sepia(100%);
 }
 
-.filter__brightness {
+.filter-brightness {
   filter: brightness(150%);
 }
 
-.filter__opacity {
+.filter-opacity {
   filter: opacity(0.8);
 }
 
-.filter__saturate {
+.filter-saturate {
   filter: saturate(200%);
 }
 
-.filter__contrast {
+.filter-contrast {
   filter: contrast(200%);
 }
 
-.filter__grayscale {
+.filter-grayscale {
   filter: grayscale(80%);
 }
 
-.filter__blur {
+.filter-blur {
   filter: contrast(200%) blur(0.2rem);
 }
-
-

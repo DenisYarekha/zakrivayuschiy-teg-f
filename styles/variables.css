@@ -1,6 +1,6 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
-  --font-main: "InterVar", serif;
+  --font-main: "InterVar", sans-serif;
   --font-accent: "PressStart2P", fantasy;
   --color-main: #00cc14;
   --font-weight-title: 785;
@@ -9,6 +9,7 @@
   --like-color: #ff0000;
   --bg-color-main: #000;
   --bg-color-accent: black;
+
   --background: repeating-linear-gradient(
       90deg,
       black 0px 2px,
